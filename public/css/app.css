@@ -1,0 +1,17 @@
+.my-title {
+  color: red !important;
+}
+
+.head {
+  text-align: center;
+}
+
+.form__box {
+  display: flex;
+  flex-direction: column;
+}
+
+.form__input {
+  text-align: center;
+}
+
