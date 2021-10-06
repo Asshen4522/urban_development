@@ -13,8 +13,8 @@
     <ul>
         <form action="/test" method="POST" class="form__box">
             @csrf
-            <input type="text"name="FIO" class="form__input" placeholder="ФИО*" required>
-            <input type="text" name="Login" class="form__input" placeholder="Логин*" required>
+            <input type="text"name="FIO" class="form__input" placeholder="ФИО" required>
+            <input type="text" name="Login" class="form__input" placeholder="Логин" required>
             <input type="email" name="email" class="form__input" placeholder="Почта" required>
             <input type="password" name="password" class="form__input" placeholder="Пароль" required>
             <input type="password" name="password_check" class="form__input" placeholder="Подтверждение пароля" required>
