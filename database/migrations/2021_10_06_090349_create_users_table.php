@@ -19,9 +19,10 @@ class CreateUsersTable extends Migration
             $table->string('surname');
             $table->string('last_name');
             $table->string('login');
-            $table->string('email');
+            $table->string('email')->unique();
             $table->string('password');
             $table->foreignId('role_id')->constrained('roles');
+            $table->timestamps();
         });
     }
 

@@ -818,7 +818,7 @@
                 "psr/container-implementation": "1.0"
             },
             "replace": {
-                "illuminate/auth": "self.version",
+                "illuminate/Registrate": "self.version",
                 "illuminate/broadcasting": "self.version",
                 "illuminate/bus": "self.version",
                 "illuminate/cache": "self.version",

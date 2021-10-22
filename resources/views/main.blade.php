@@ -1,22 +1,24 @@
 @extends('layout.app')
 @section('title', 'Городское развитие - главная')
 @section('body')
-<div class="jumbotron">
-    <div class="container">
-        <h1>Привет, дорогой друг!</h1>
-        <p>
-            Вместе мы сможем улучшить наш любимый город. Нам очень сложно узнать обо всех проблемах города, поэтому мы
-            предлагаем тебе помочь своему городу!
-        </p>
-        <p>
-            Увидел проблему? Дай нам знать о ней и мы ее решим!
-        </p>
-        <p>
-            <a class="btn btn-success btn-lg" href="#" role="button">Сообщить о проблеме</a>
-            <a class="btn btn-primary btn-lg" href="#" role="button">Присоедениться к проекту</a>
-        </p>
+
+<div class="entry">
+    <div class="entry__header font-700">
+        Привет, дорогой друг!
+    </div>
+    <div class="entry__text font-300">
+        Вместе мы сможем улучшить наш любимый город. Нам очень сложно узнать обо всех проблемах города, поэтому мы предлагаем тебе помочь своему городу!
+    </div>
+    <div class="entry__footer font-300">
+        Увидел проблему? Дай нам знать о ней и мы ее решим!
+    </div>
+    <div class="entry__buttons">
+        <a href="#" class="entry__button font-300-kur">Сообщить о проблеме</a>
+        <a href="#" class="entry__button font-300-kur">Присоединиться к проекту</a>
     </div>
 </div>
+
+
 
 <div class="container">
     <h2>Последние решенные проблемы</h2>

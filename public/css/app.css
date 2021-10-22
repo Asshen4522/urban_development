@@ -1,29 +1,20 @@
 .register {
-  width: 100%;
   margin-left: 80px;
   margin-right: 80px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .head {
   text-align: center;
 }
 
-.form__box {
-  display: flex;
-  flex-direction: column;
-  width: 50%;
-}
-
-.form__input {
-  text-align: center;
-  margin-top: 20px;
-  background-color: aquamarine;
-}
-
 :root {
   --color-main: rgb(223, 248, 241);
   --color-conc: rgb(6, 250, 250);
   --color-header: rgb(94, 182, 255);
+  --color-buttons: rgb(48, 51, 216);
 }
 
 .font-300 {
@@ -46,6 +37,8 @@
 
 .page {
   background-color: var(--color-main);
+  min-height: calc(100vh - 50px);
+  margin-top: 50px;
 }
 
 a {
@@ -61,6 +54,11 @@ a {
   align-items: center;
   justify-content: space-between;
   font-size: 20px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
 }
 
 .header__left {
@@ -80,6 +78,7 @@ a {
   color: black;
   display: flex;
   align-items: center;
+  transition: 500ms;
 }
 
 button.header__elem {
@@ -96,5 +95,69 @@ button.header__elem {
   background-color: var(--color-header);
   filter: brightness(0.9);
   text-decoration: none;
+}
+
+.entry {
+  margin-left: 200px;
+  margin-right: 200px;
+  font-size: 40px;
+}
+
+.entry__button {
+  background-color: var(--color-buttons);
+  border-radius: 5px;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: white;
+  font-size: 75%;
+}
+
+.entry__buttons {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.entry__button:hover {
+  filter: brightness(0.9);
+  text-decoration: none;
+  color: white;
+}
+
+.entry__header {
+  font-size: 50px;
+  margin-top: 50px;
+}
+
+.entry__footer {
+  margin-top: 20px;
+}
+
+.entry__text {
+  line-height: 1;
+  width: 70%;
+}
+
+.author {
+  margin-left: 80px;
+  margin-right: 80px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.form__box {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  align-self: center;
+}
+
+.form__input {
+  text-align: center;
+  margin-top: 20px;
+  background-color: aquamarine;
 }
 

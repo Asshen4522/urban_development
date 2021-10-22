@@ -13,13 +13,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+Route::get('/', function () {
+    return redirect('/main');
+});
+
 Route::get('/main', function () {
     return view('main');
-});
+})->name('main');
 
 Route::get('/registration', function () {
     return view('registration');
 });
 
-Route::get('/test', 'NewController@test');
-Route::post('/test', 'NewController@test');
+Route::get('/authorisation', function () {
+    return view('authorisation');
+});
+
+Route::post('/Registrate', 'UserController@register');
+Route::post('/Authorisate', 'UserController@authorisate');
+Route::post('/DeAuthorisate', 'UserController@unauthorisate');

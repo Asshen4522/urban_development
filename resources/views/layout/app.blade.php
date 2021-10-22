@@ -11,8 +11,8 @@
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:ital,wght@0,300;0,700;1,300&display=swap" rel="stylesheet">
     </head>
     <body>
+        @include('layout.header')
         <div class="page">
-            @include('layout.header')
             @yield('body')
         </div>
 

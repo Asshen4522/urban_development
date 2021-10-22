@@ -6,7 +6,7 @@
     <div class="header__right">
         <a href="/main" class="header__elem font-300-kur">Главная</a>
         <a href="/registration" class="header__elem font-300-kur">Зарегестрироваться</a>
-        <a href="#" class="header__elem font-300-kur">Войти</a>
+        <a href="/authorisation" class="header__elem font-300-kur">Войти</a>
         <button class="header__elem font-300-kur">{{$name}}</button>
         <ul class="header__account-menu">
             <li><a href="#" class="header__elem font-300-kur">Мои заявки</a></li>

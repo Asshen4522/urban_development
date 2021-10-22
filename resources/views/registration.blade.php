@@ -2,22 +2,40 @@
 @section('title', 'Городское развитие - регистрация')
 @section('body')
 <div class="register">
-    <h1 class="head">
+    <h1 class="head font-700">
         Форма регистрации
     </h1>
 
-    <form action="/test" method="POST" class="form__box">
+    <form action="/Registrate" method="POST" class="form__box">
         @csrf
+        @method('post')
         <input type="text"name="FIO" class="form__input" placeholder="ФИО" required>
-        <input type="text" name="Login" class="form__input" placeholder="Логин" required>
+        <input type="text" name="login" class="form__input" placeholder="Логин" required>
         <input type="email" name="email" class="form__input" placeholder="Почта" required>
         <input type="password" name="password" class="form__input" placeholder="Пароль" required>
-        <input type="password" name="password_check" class="form__input" placeholder="Подтверждение пароля" required>
+        <input type="password" name="password_confirmed" class="form__input" placeholder="Подтверждение пароля" required>
         <label>
             <input type="checkbox" name="sogl" class="form__input"required>
             Обработка пользовательских данных?
         </label>
         <input type="submit" class="form__input" value="Отправить">
+        @guest
+            <p> НЕ МЯУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУ</p>
+        @endguest
+        @auth
+            <p>МЯУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУ</p>
+        @endauth
+    </form>
+    <form action="/DeAuthorisate" method="POST" class="form__box">
+        @csrf
+        @method('post')
+        <input type="submit" class="form__input" value="Отправить">
+        @guest
+            <p> НЕ МЯУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУ</p>
+        @endguest
+        @auth
+            <p>МЯУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУ</p>
+        @endauth
     </form>
 </div>
 @endsection

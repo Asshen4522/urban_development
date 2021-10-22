@@ -1,0 +1,37 @@
+.entry{
+    margin-left: 200px;
+    margin-right: 200px;
+    font-size: 40px;
+}
+.entry__button{
+    background-color: var(--color-buttons);
+    border-radius: 5px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: white;
+    font-size: 75%;
+}
+.entry__buttons{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.entry__button:hover{
+    filter: brightness(0.9);
+    text-decoration: none;
+    color: white;
+}
+.entry__header{
+    font-size: 50px;
+    margin-top: 50px;
+}
+.entry__footer{
+    margin-top: 20px;
+}
+.entry__text{
+    line-height: 1;
+    width: 70%;
+}
