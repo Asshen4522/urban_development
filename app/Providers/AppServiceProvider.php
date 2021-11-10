@@ -4,7 +4,8 @@ namespace App\Providers;
 
 use Illuminate\Support\Facades\View as FacadesView;
 use Illuminate\Support\ServiceProvider;
-use Illuminate\View\View;
+//use Illuminate\View\View;
+use Illuminate\Support\Facades\Auth;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -26,7 +27,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //
-        $name = "Имя";
-        FacadesView::share('name', $name);    
+        
+        //FacadesView::share('name', $FIO);    
     }
 }

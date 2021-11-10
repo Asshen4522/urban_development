@@ -8,25 +8,32 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 
+
+
 class UserController extends Controller {
     public function register(Request $request) {
         $this->validate($request, [
             'password'=> 'required','confirmed',
         ]);
         $FIO = $request->FIO;
-        list($surname, $name, $last_name) = explode(" ", $FIO);
+        //list($surname, $name, $last_name) = explode(" ", $FIO);
+        $FIO = explode(" ", $FIO);
+        $name=$FIO[1];
+        $surname = $FIO[0];
+        unset($FIO[0]);
+        unset($FIO[1]);
         User::create([
             'name' => $name,
             'surname' => $surname,
-            'last_name' => $last_name,
+            'last_name' => implode(' ', $FIO),
             'login' => $request -> login,
             'email' => $request -> email,
             'password' => Hash::make($request -> password),
         ]);
-        return redirect('/registration');
+        return redirect('/authorisation');
     }
     public function authorisate(Request $request) {
-
+        
         $user = User::where('email', $request->email)->get();
 
         if (count($user) < 1) {
@@ -43,12 +50,13 @@ class UserController extends Controller {
 
         if (Auth::attempt($request->only('email', 'password'))) {
             return redirect('/main');
+            
         } else {
             return response('fu', 401);
         }
     }
     public function unauthorisate(Request $request) {
         Auth::logout();
-        return redirect('/registration');
+        return redirect('/main');
     }
 }

@@ -30,6 +30,10 @@ Route::get('/authorisation', function () {
     return view('authorisation');
 });
 
+Route::get('/cabinet', function () {
+    return view('cabinet');
+});
+
 Route::post('/Registrate', 'UserController@register');
 Route::post('/Authorisate', 'UserController@authorisate');
-Route::post('/DeAuthorisate', 'UserController@unauthorisate');
+Route::get('/DeAuthorisate', 'UserController@unauthorisate');

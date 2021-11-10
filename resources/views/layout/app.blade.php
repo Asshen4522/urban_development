@@ -12,6 +12,8 @@
     </head>
     <body>
         @include('layout.header')
+        
+        
         <div class="page">
             @yield('body')
         </div>
