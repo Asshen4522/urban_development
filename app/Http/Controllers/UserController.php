@@ -16,7 +16,6 @@ class UserController extends Controller {
             'password'=> 'required','confirmed',
         ]);
         $FIO = $request->FIO;
-        //list($surname, $name, $last_name) = explode(" ", $FIO);
         $FIO = explode(" ", $FIO);
         $name=$FIO[1];
         $surname = $FIO[0];
@@ -34,22 +33,22 @@ class UserController extends Controller {
     }
     public function authorisate(Request $request) {
         
-        $user = User::where('email', $request->email)->get();
+        // $user = User::where('email', $request->email)->get();
 
-        if (count($user) < 1) {
-            # code...
-            return response('not found', 404);
-        }
+        // if (count($user) < 1) {
+        //     # code...
+        //     return response('not found', 404);
+        // }
 
-        $user = $user[0];
-        $verified = Hash::check($request->password, $user->password);
+        // $user = $user[0];
+        // $verified = Hash::check($request->password, $user->password);
 
-        if ($verified !== true) {
-            return response('not found', 404);
-        }
+        // if ($verified !== true) {
+        //     return response('not found', 404);
+        // }
 
         if (Auth::attempt($request->only('email', 'password'))) {
-            return redirect('/main');
+            return redirect('/cabinet');
             
         } else {
             return response('fu', 401);

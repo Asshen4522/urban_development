@@ -45,4 +45,9 @@ class User extends Authenticatable
     protected $attributes = [
         'role_id' => 2,
     ];
+
+
+    public function getFio(){
+        return ($this->attributes['surname'] . ' ' . $this->attributes['name'] . '. ' . $this->attributes['last_name'] . '.' );
+    }
 }

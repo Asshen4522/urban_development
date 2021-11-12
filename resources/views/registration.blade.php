@@ -19,23 +19,7 @@
             Обработка пользовательских данных?
         </label>
         <input type="submit" class="form__input" value="Отправить">
-        @guest
-            <p> НЕ МЯУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУ</p>
-        @endguest
-        @auth
-            <p>МЯУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУ</p>
-        @endauth
     </form>
-    <form action="/DeAuthorisate" method="POST" class="form__box">
-        @csrf
-        @method('post')
-        <input type="submit" class="form__input" value="Отправить">
-        @guest
-            <p> НЕ МЯУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУ</p>
-        @endguest
-        @auth
-            <p>МЯУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУУ</p>
-        @endauth
-    </form>
+
 </div>
 @endsection

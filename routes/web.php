@@ -36,4 +36,5 @@ Route::get('/cabinet', function () {
 
 Route::post('/Registrate', 'UserController@register');
 Route::post('/Authorisate', 'UserController@authorisate');
-Route::get('/DeAuthorisate', 'UserController@unauthorisate');
+Route::post('/DeAuthorisate', 'UserController@unauthorisate');
+Route::get('/test','FunctionController@dd');

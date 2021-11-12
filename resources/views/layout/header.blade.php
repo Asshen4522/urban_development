@@ -10,7 +10,7 @@
             <a href="/authorisation" class="header__elem font-300-kur">Войти</a>
         @endguest
         @auth
-            <button class="header__elem font-300-kur">Фамилия И. О.</button>
+            <a gref="/cabinet" class="header__elem font-300-kur"><?= Auth::User()->getFio()?></a>
             <ul class="header__account-menu">
                 <li><a href="/cabinet" class="header__elem font-300-kur">Личный кабинет</a></li>
                 <li><a href="#" class="header__elem font-300-kur">Мои заявки</a></li>
