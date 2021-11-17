@@ -4,6 +4,19 @@
     margin-top: 50px;
 }
 
+.user-pages{
+    margin-left: 80px;
+    margin-right: 80px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.head{
+    text-align: center;
+    font-size: 50px;
+}
+
 a{
     color: black;
 }

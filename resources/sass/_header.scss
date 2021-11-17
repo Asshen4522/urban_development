@@ -39,7 +39,11 @@ button.header__elem{
     border: none;
 }
 
-.header__account-menu{
+.header__account-menu-open{
+    list-style: none;
+}
+
+.header__account-menu-close{
     list-style: none;
     display: none;
 }

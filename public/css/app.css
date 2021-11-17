@@ -1,15 +1,3 @@
-.register {
-  margin-left: 80px;
-  margin-right: 80px;
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-}
-
-.head {
-  text-align: center;
-}
-
 :root {
   --color-main: rgb(223, 248, 241);
   --color-conc: rgb(6, 250, 250);
@@ -39,6 +27,19 @@
   background-color: var(--color-main);
   min-height: calc(100vh - 50px);
   margin-top: 50px;
+}
+
+.user-pages {
+  margin-left: 80px;
+  margin-right: 80px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.head {
+  text-align: center;
+  font-size: 50px;
 }
 
 a {
@@ -86,7 +87,11 @@ button.header__elem {
   border: none;
 }
 
-.header__account-menu {
+.header__account-menu-open {
+  list-style: none;
+}
+
+.header__account-menu-close {
   list-style: none;
   display: none;
 }
@@ -140,14 +145,6 @@ button.header__elem {
   width: 70%;
 }
 
-.author {
-  margin-left: 80px;
-  margin-right: 80px;
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-}
-
 .form__box {
   display: flex;
   flex-direction: column;
@@ -159,5 +156,29 @@ button.header__elem {
   text-align: center;
   margin-top: 20px;
   background-color: aquamarine;
+}
+
+.cabinet {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.cabinet__blocks {
+  text-align: left;
+  width: 50%;
+}
+
+.cabinet__blocks-left {
+  font-size: 40px;
+}
+
+.cabinet__button {
+  font-size: 30px;
+  align-items: center;
+}
+
+.cabinet__forms {
+  width: 100%;
 }
 

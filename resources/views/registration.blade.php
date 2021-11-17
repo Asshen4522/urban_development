@@ -1,7 +1,7 @@
 @extends('layout.app')
 @section('title', 'Городское развитие - регистрация')
 @section('body')
-<div class="register">
+<div class="user-pages">
     <h1 class="head font-700">
         Форма регистрации
     </h1>

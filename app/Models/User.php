@@ -48,6 +48,13 @@ class User extends Authenticatable
 
 
     public function getFio(){
-        return ($this->attributes['surname'] . ' ' . $this->attributes['name'] . '. ' . $this->attributes['last_name'] . '.' );
+        return ($this->attributes['surname'] . ' ' . $this->attributes['name'] . ' ' . $this->attributes['last_name'] );
     }
+
+    public function cabinet()
+    {   
+        // "ФИО:  . Auth::User()->getFio() . Логин:  . $this->attributes['login'] . Электронная почта:  . $this->attributes['email']";
+        $result = '<div> ФИО: '  . $this->getFio() . '</div> <div> Логин: '  . $this->attributes['login'] . '</div> <div> Электронная почта: '  . $this->attributes['email'] . '</div>';
+        return $result;
+        }
 }

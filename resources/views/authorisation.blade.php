@@ -1,7 +1,7 @@
 @extends('layout.app')
 @section('title', 'Городское развитие - авторизация')
 @section('body')
-<div class="author">
+<div class="user-pages">
     <h1 class="head font-700">
         Форма авторизации
     </h1>

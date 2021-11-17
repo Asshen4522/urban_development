@@ -19380,6 +19380,8 @@ module.exports = function(module) {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+__webpack_require__(/*! ./header */ "./resources/js/header.js");
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
@@ -19411,6 +19413,31 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/header.js":
+/*!********************************!*\
+  !*** ./resources/js/header.js ***!
+  \********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+var menu_button = document.querySelector("#menu_button");
+var menu_list = document.querySelector("#menu_list");
+menu_button.addEventListener("click", menu_toggle);
+
+function menu_toggle() {
+  if (menu_list.classList.contains('header__account-menu-close')) {
+    menu_list.classList.add('header__account-menu-open');
+    menu_list.classList.remove('header__account-menu-close');
+  } else {
+    menu_list.classList.add('header__account-menu-close');
+    menu_list.classList.remove('header__account-menu-open');
+  }
+
+  console.log("есть");
+}
 
 /***/ }),
 
