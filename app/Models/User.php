@@ -43,7 +43,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $attributes = [
-        'role_id' => 2,
+        'role_id' => 1,
     ];
 
 

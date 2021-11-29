@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\Role;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,7 +33,9 @@ Route::get('/authorisation', function () {
 });
 
 Route::get('/cabinet', function () {
-    return view('cabinet');
+    $user = Auth::user();
+    $role= Role::where('id',$user->role_id)->get();
+    return view('cabinet', ["role" => $role[0]]);
 });
 
 Route::post('/Registrate', 'UserController@register');

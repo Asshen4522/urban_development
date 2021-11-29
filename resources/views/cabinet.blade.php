@@ -9,6 +9,12 @@
             </h1>
             <div class='font-300'>
             <?= Auth::User()->cabinet()?>
+            @can('user', User::class)
+                Роль: {{$role->name}}
+            @endcan
+            @can('admin', User::class)
+                Роль: {{$role->name}}
+            @endcan
             </div>
         </div>
         <div class="cabinet__blocks">

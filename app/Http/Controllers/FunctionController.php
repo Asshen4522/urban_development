@@ -7,8 +7,7 @@ use Illuminate\Support\Facades\Auth;
 
 
 class FunctionController extends Controller{
-    public function dd(){
-    }
+    
 }
 
 ?>
