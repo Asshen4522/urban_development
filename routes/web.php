@@ -34,10 +34,11 @@ Route::get('/authorisation', function () {
 
 Route::get('/cabinet', function () {
     $user = Auth::user();
-    $role= Role::where('id',$user->role_id)->get();
+    $role = Role::where('id', $user->role_id)->get();
     return view('cabinet', ["role" => $role[0]]);
 });
 
 Route::post('/Registrate', 'UserController@register');
+Route::post('/Validate', 'UserController@validation');
 Route::post('/Authorisate', 'UserController@authorisate');
 Route::get('/DeAuthorisate', 'UserController@unauthorisate');

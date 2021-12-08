@@ -19382,6 +19382,8 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 __webpack_require__(/*! ./header */ "./resources/js/header.js");
 
+__webpack_require__(/*! ./forms */ "./resources/js/forms.js");
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
@@ -19416,6 +19418,164 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
+/***/ "./resources/js/forms.js":
+/*!*******************************!*\
+  !*** ./resources/js/forms.js ***!
+  \*******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// вытаскиваем форму из DOM
+var registerForm = document.forms['register']; // она не на всех страницах, так что проверка
+
+if (registerForm) {
+  var submitButton = registerForm.querySelector('.form__submit');
+  submitButton.addEventListener('click', function (evt) {
+    validate(registerForm);
+    var inputs = Array.from(registerForm.querySelectorAll('.form__input'));
+
+    if (inputs.every(function (input) {
+      return input.validity.valid;
+    })) {
+      var formTrigger = registerForm.querySelector("button.submit");
+      var event = new MouseEvent('click');
+      formTrigger.dispatchEvent(event);
+    }
+  });
+}
+/**
+ * @param {HTMLInputElement} input 
+ */
+
+
+function validateRemote(input) {
+  var ENDPOINT = '/Validate';
+  var token = registerForm.querySelector('[name="_token"]').value;
+  fetch(ENDPOINT, {
+    method: "POST",
+    body: JSON.stringify({
+      login: input.value
+    }),
+    headers: {
+      'X-CSRF-TOKEN': token,
+      'Content-Type': 'application/json'
+    }
+  }).then(function (response) {
+    return response.json();
+  }).then(function (body) {
+    if (body.success) {
+      hideError(input);
+    } else {
+      renderError(input, 'Пользователь с таким логином уже есть');
+    }
+  });
+}
+/**
+ * @param {HTMLFormElement} form 
+ */
+
+
+function validate(form) {
+  var inputs = Array.from(form.querySelectorAll('.form__input'));
+  inputs.forEach(function (input) {
+    if (input.name === 'FIO') {
+      validateFio(input);
+    } else if (input.name === 'password' || input.name === 'password_confirmed') {
+      validatePasswords(form['password'], form['password_confirmed']);
+    } else if (input.name === 'login') {
+      valiadateLogin(input);
+    } else {
+      validateInput(input);
+    }
+  });
+}
+/**
+ * @param {HTMLInputElement} input 
+ */
+
+
+function validateInput(input) {
+  if (!input.validity.valid) {
+    renderError(input, input.validationMessage);
+  } else {
+    hideError(input);
+  }
+}
+/**
+ * 
+ * @param {HTMLInputElement} element 
+ * @param {String} message 
+ */
+
+
+function renderError(element, message) {
+  var elementName = element.name; // console.log('render', elementName);
+
+  var errorContainer = registerForm.querySelector("[data-error-name=\"".concat(elementName, "\"]"));
+  errorContainer.textContent = message;
+}
+/**
+ * 
+ * @param {HTMLElement} element 
+ */
+
+
+function hideError(element) {
+  var elementName = element.name; // console.log('hide', elementName);
+
+  var errorContainer = registerForm.querySelector('[data-error-name="' + elementName + '"]');
+  errorContainer.textContent = "";
+}
+/**
+ * @param {HTMLInputElement} input 
+ * @returns {Boolean}
+ */
+
+
+function validateFio(input) {
+  // если два пробела, то валидно
+  if (input.validity.valid && input.value.split(' ').length === 3) {
+    hideError(input);
+  } else {
+    renderError(input, 'ФИО введен не верно');
+  }
+}
+/** 
+ * @param {HTMLInputElement} password 
+ * @param {HTMLInputElement} confirmPassword 
+ * @returns 
+ */
+
+
+function validatePasswords(password, confirmPassword) {
+  if (password.validity.valid && confirmPassword.validity.valid && password.value === confirmPassword.value) {
+    hideError(password);
+    hideError(confirmPassword);
+  } else {
+    var message = 'Пароли должны совпадать';
+    renderError(password, message);
+    renderError(confirmPassword, message);
+  }
+}
+/**
+ * @param {HTMLInputElement} input 
+ */
+
+
+function valiadateLogin(input) {
+  var reg = /[a-zA-Z]/g;
+  var matches = input.value.match(reg);
+
+  if (input.validity.valid && matches && matches.length == input.value.length) {
+    hideError(input);
+    validateRemote(input);
+  } else {
+    renderError(input, 'Разрешены только латинские буквы');
+  }
+}
+
+/***/ }),
+
 /***/ "./resources/js/header.js":
 /*!********************************!*\
   !*** ./resources/js/header.js ***!
@@ -19425,7 +19585,10 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 var menu_button = document.querySelector("#menu_button");
 var menu_list = document.querySelector("#menu_list");
-menu_button.addEventListener("click", menu_toggle);
+
+if (menu_button) {
+  menu_button.addEventListener("click", menu_toggle);
+}
 
 function menu_toggle() {
   if (menu_list.classList.contains('header__account-menu-close')) {

@@ -153,9 +153,25 @@ button.header__elem {
 }
 
 .form__input {
+  margin-top: 20px;
+  padding: 12px 8px;
+  background-color: aquamarine;
+}
+
+.form__error {
+  margin-top: 4px;
+  color: tomato;
+}
+
+.form__submit {
   text-align: center;
   margin-top: 20px;
+  padding: 12px 8px;
   background-color: aquamarine;
+}
+
+.submit {
+  display: none;
 }
 
 .cabinet {

@@ -1,7 +1,9 @@
 const menu_button = document.querySelector("#menu_button")
 const menu_list = document.querySelector("#menu_list")
 
-menu_button.addEventListener("click", menu_toggle)
+if (menu_button) {
+    menu_button.addEventListener("click", menu_toggle);
+}
 
 function menu_toggle() {
     if (menu_list.classList.contains('header__account-menu-close')) {

@@ -10,10 +10,10 @@
             <div class='font-300'>
             <?= Auth::User()->cabinet()?>
             @can('user', User::class)
-                Роль: {{$role->name}}
+                Роль: {{$role->name}} (Пользователь)
             @endcan
             @can('admin', User::class)
-                Роль: {{$role->name}}
+                Роль: {{$role->name}} (Админ)
             @endcan
             </div>
         </div>
